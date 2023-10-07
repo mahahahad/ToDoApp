@@ -27,18 +27,21 @@ body {
 .new-task-wrapper {
 	display: flex;
 	margin-bottom: 1rem;
+	border-radius: .5rem;
+	overflow: hidden;
 }
 
 .new-task-wrapper input {
-	padding: 0.75rem;
+	padding: 0.75rem 1.25rem;
 	flex-grow: 1;
-	background: rgba(0, 0, 0, 0.1);
-	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+	background: rgb(10, 10, 10);
+	/* box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5); */
 	border: none;
 }
 
 .new-task-wrapper button {
 	padding: 1rem 3rem;
+	border-radius: initial;
 }
 
 .no-tasks {
@@ -70,6 +73,11 @@ body {
 	flex-direction: row;
 	justify-content: space-between;
 	transition: 250ms box-shadow ease;
+}
+
+.task-actions {
+	display: flex;
+	gap: 1rem;
 }
 
 .task:hover {

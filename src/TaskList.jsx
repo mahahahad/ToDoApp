@@ -1,11 +1,15 @@
 import React from 'react'
 import Task from './Task'
 
-function TaskList(props) {
+function TaskList({ tasks, setTasks }) {
 	const emptyState = <p className="no-tasks">You have no tasks</p>
 	return (
 		<div className="task-list">
-			{Object.keys(props.tasks).length === 0 ? emptyState : props.tasks}
+			{
+				tasks.map((task, index) => {
+					return <Task name={task.name} key={index} id={index} tasks={tasks} setTasks={setTasks} />
+				})
+			}
 		</div>
 	)
 }
