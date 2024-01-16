@@ -12,9 +12,14 @@ function Task({ id, name, tasks, setTasks }) {
 	const handleClick = () => {
 		taskState === "Complete" ? setTaskState("Incomplete") : setTaskState("Complete");
 	};
-	const handleEdit = () => {
-		console.log("Cheese");
-
+	const handleEdit = (taskID) => {
+		const newName = window.prompt("What would you like to rename this task to?");
+		tasks.forEach(task => {
+			if (task.id === taskID) {
+				task.name = newName;
+			}
+		setTasks(tasks);
+		});
 	};
 	const handleDelete = (taskID) => {
 		const filteredTasks = tasks.filter(task => task.id !== taskID);
@@ -25,7 +30,7 @@ function Task({ id, name, tasks, setTasks }) {
 			<p className={`task-title ${taskState}`}>{name}</p>
 			<div className="task-actions">
 				<button onClick={() => { handleDelete(id) }} className="btn--red"><AiFillDelete /></button>
-				<button onClick={handleEdit} className="btn"><AiFillEdit /></button>
+				<button onClick={() => { handleEdit(id) }} className="btn"><AiFillEdit /></button>
 			</div>
 		</div>
 	);
